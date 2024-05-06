@@ -3,7 +3,14 @@ import {Text} from 'react-native';
 import style from './Style';
 
 const MyText = () => {
-  return <Text style={style.text}>Hello, React Native World!</Text>;
+  const handleTextClick = () => {
+    alert('The Text has been Clicked');
+  };
+  return (
+    <Text style={style.text} onPress={() => handleTextClick()}>
+      Hello, React Native World!
+    </Text>
+  );
 };
 
 export default MyText;
