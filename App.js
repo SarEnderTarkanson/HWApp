@@ -1,10 +1,11 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
+import MyText from './components/MyText/MyText';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <Text>Hi, I just completed my first React Native Assignment</Text>
+      <MyText />
     </SafeAreaView>
   );
 };
