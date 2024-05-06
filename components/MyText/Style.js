@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
-    text: {
-        color: "red"
-    }
-})
+  text: {
+    color: 'red',
+  },
+});
 
 export default style;
