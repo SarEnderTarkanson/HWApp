@@ -1,21 +1,45 @@
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView, Text} from 'react-native';
-//import MyText from './components/MyText/MyText';
+import React, {useRef} from 'react';
+import {
+  SafeAreaView,
+  Text,
+  ScrollView,
+  Button,
+  View,
+  StyleSheet,
+} from 'react-native';
 
 const App = () => {
-  const [text, setText] = useState(0);
-  useEffect(() => {
-    console.log(text);
-  }, [text]);
+  let array = Array(1000).fill(0);
+  const scrollViewRef = useRef(null);
+  const handleClick = () => {
+    scrollViewRef.current.scrollTo({
+      x: 0,
+      y: 0,
+      animated: true,
+    });
+  };
 
-  useEffect(() => {
-    console.log('The component has rendered!');
-  }, []);
   return (
-    <SafeAreaView>
-      <Text onPress={() => setText(text + 1)}>{text}</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView ref={scrollViewRef}>
+        {array.map((value, index) => (
+          <Text key={index}>Hello World!   {index}</Text>
+        ))}
+      </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Button title="Scroll to Top" onPress={handleClick} />
+      </View>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  buttonContainer: {
+    padding: 10,
+  },
+});
 
 export default App;
