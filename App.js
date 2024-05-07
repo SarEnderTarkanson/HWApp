@@ -1,45 +1,28 @@
-import React, {useRef} from 'react';
-import {
-  SafeAreaView,
-  Text,
-  ScrollView,
-  Button,
-  View,
-  StyleSheet,
-} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, Text, Button, View} from 'react-native';
+import {ThemeContext} from './contexts/ThemeContext';
+import Homescreen from './components/Homescreen/Homescreen';
 
 const App = () => {
-  let array = Array(1000).fill(0);
-  const scrollViewRef = useRef(null);
-  const handleClick = () => {
-    scrollViewRef.current.scrollTo({
-      x: 0,
-      y: 0,
-      animated: true,
-    });
-  };
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView ref={scrollViewRef}>
-        {array.map((value, index) => (
-          <Text key={index}>Hello World!   {index}</Text>
-        ))}
-      </ScrollView>
-      <View style={styles.buttonContainer}>
-        <Button title="Scroll to Top" onPress={handleClick} />
-      </View>
-    </SafeAreaView>
+    <ThemeContext.Provider value={isDarkMode}>
+      <SafeAreaView>
+        <View style={{backgroundColor: isDarkMode ? 'gray' : 'white'}}>
+          <Text style={{color: isDarkMode ? 'white' : 'black'}}>
+            Hello World!
+          </Text>
+        </View>
+        <Button title={'Switch Mode'} onPress={toggleTheme} />
+
+        <Homescreen />
+      </SafeAreaView>
+    </ThemeContext.Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  buttonContainer: {
-    padding: 10,
-  },
-});
 
 export default App;
