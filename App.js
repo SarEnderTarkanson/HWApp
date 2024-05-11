@@ -6,6 +6,28 @@ class App extends Component {
     super(props);
     this.state = {};
   }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Checking if component should update');
+    return true;
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('Getting snapshot before component update');
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('Component has updated');
+  }
+
+  componentWillUnmount() {
+    console.log('Component will unmount');
+  }
   render() {
     return (
       <SafeAreaView>
