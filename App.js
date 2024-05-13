@@ -1,61 +1,30 @@
-import React, {useState} from 'react';
-import {SafeAreaView, TextInput} from 'react-native';
+import React from 'react';
+import {SafeAreaView, ScrollView, Image} from 'react-native';
 
 const App = () => {
-  const [textValue, setTextValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
-  const [email, setEmail] = useState('');
   return (
     <SafeAreaView>
-      <TextInput
-        style={{
-          borderWidth: 1,
-          borderColor: 'white',
-          padding: 10,
-          borderRadius: 4,
+      <ScrollView
+        onScroll={() => {
+          console.log('scrolling');
         }}
-        value={textValue}
-        onChangeText={value => {
-          console.log(value);
-          setTextValue(value);
-        }}
-        autoFocus={true}
-        placeholder="Please enter your name"
-      />
-      <TextInput
-        style={{
-          borderWidth: 1,
-          borderColor: 'white',
-          padding: 10,
-          borderRadius: 4,
-        }}
-        value={email}
-        onChangeText={value => {
-          console.log(value);
-          setEmail(value);
-        }}
-        returnKeyType={'search'}
-        keyboardType={'email-address'}
-        autoFocus={true}
-        placeholder="Please enter your email"
-      />
-      <TextInput
-        style={{
-          borderWidth: 1,
-          borderColor: 'white',
-          padding: 10,
-          borderRadius: 4,
-        }}
-        value={passwordValue}
-        onChangeText={value => {
-          console.log(value);
-          setPasswordValue(value);
-        }}
-        keyboardType={'phone-pad'}
-        secureTextEntry={true}
-        autoFocus={true}
-        placeholder="Please enter your password"
-      />
+        contentContainerStyle={{backgroundColor: 'red', height: 600}}
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}>
+        <Image
+          source={require('./assets/images/cake.png')}
+          style={{height: 500, width: 500}}
+        />
+        <Image
+          source={require('./assets/images/cake.png')}
+          style={{height: 500, width: 500}}
+        />
+        <Image
+          source={require('./assets/images/cake.png')}
+          style={{height: 500, width: 500}}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
