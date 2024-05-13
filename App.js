@@ -8,6 +8,8 @@ import {
   Switch,
   View,
 } from 'react-native';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faCheck} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
   const [email, setEmail] = useState('');
@@ -45,9 +47,18 @@ const App = () => {
             console.log('clicked!');
             console.log(email, password, shouldKeepLoggedIn);
           }}>
-          <Text style={{color: 'white', textAlign: 'center', padding: 10}}>
-            Submit
-          </Text>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text style={{color: 'white', textAlign: 'center', padding: 10}}>
+              Submit
+            </Text>
+            <FontAwesomeIcon icon={faCheck} style={{color: 'white'}} />
+          </View>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
