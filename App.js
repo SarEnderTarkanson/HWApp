@@ -1,67 +1,38 @@
-import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  Switch,
-  View,
-} from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faCheck} from '@fortawesome/free-solid-svg-icons';
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import {View} from 'react-native';
 
 const App = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [shouldKeepLoggedIn, setShouldKeepLoggedIn] = useState(true);
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <TextInput
-          keyboardType={'email-address'}
-          style={{borderWidth: 1, borderRadius: 4, padding: 10}}
-          placeholder={'Please enter your email here'}
-          onChangeText={value => setEmail(value)}
-        />
-        <TextInput
-          secureTextEntry={true}
-          style={{borderWidth: 1, borderRadius: 4, padding: 10}}
-          placeholder={'Please enter your password here'}
-          onChangeText={value => setPassword(value)}
-        />
-        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-          <Switch
-            value={shouldKeepLoggedIn}
-            onValueChange={value => setShouldKeepLoggedIn(value)}
-          />
-          <Text>Keep me logged in</Text>
-        </View>
-        <TouchableOpacity
-          style={[
-            {backgroundColor: 'black'},
-            (!email || !password) && {opacity: 0.5},
-          ]}
-          disabled={!email || !password}
-          onPress={() => {
-            console.log('clicked!');
-            console.log(email, password, shouldKeepLoggedIn);
-          }}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Text style={{color: 'white', textAlign: 'center', padding: 10}}>
-              Submit
-            </Text>
-            <FontAwesomeIcon icon={faCheck} style={{color: 'white'}} />
-          </View>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: 'white',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'baseline',
+      }}>
+      <View
+        style={{
+          backgroundColor: 'yellow',
+          width: 50,
+          height: 50,
+        }}></View>
+      <View
+        style={{
+          backgroundColor: 'green',
+          width: 50,
+          height: 50,
+        }}></View>
+      <View
+        style={{
+          backgroundColor: 'black',
+          width: 50,
+          height: 50,
+        }}></View>
+    </View>
   );
 };
 
