@@ -21,12 +21,12 @@ const App = () => {
       <ScrollView>
         <TextInput
           style={styles.ImputContainer}
-          placeholder="please enter your name"
+          placeholder="Please enter your name"
           onChangeText={value => setName(value)}
         />
         <TextInput
           style={styles.ImputContainer}
-          placeholder="please enter your age"
+          placeholder="Please enter your age"
           onChangeText={value => setAge(value)}
           keyboardType="numeric"
         />
@@ -46,7 +46,7 @@ const App = () => {
               ? () => Alert.alert('Hi ' + name + ' your age is ' + age)
               : () => Alert.alert('your informations are confidential')
           }>
-          <Text style={{fontSize: 20}}> enter </Text>
+          <Text style={{fontSize: 20}}> Submit </Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>
